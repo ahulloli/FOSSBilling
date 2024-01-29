@@ -30,8 +30,9 @@ class DebugBar extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('DebugBar_renderHead', $this->renderHead(...), ['is_safe' => ['html']]),
-            new TwigFunction('DebugBar_render', $this->render(...), ['is_safe' => ['html']]),
+            new TwigFunction('DebugBar_renderHead', [$this, 'renderHead'], ['is_safe' => ['html']]),
+            new TwigFunction('DebugBar_render', [$this, 'render'], ['is_safe' => ['html']]),
+
         ];
     }
 
